@@ -1,0 +1,1016 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DataTools</name>
+    </assembly>
+    <members>
+        <member name="T:DataTools.AudioSound">
+            <summary>
+            音频管理器 V2.0
+            </summary>
+        </member>
+        <member name="F:DataTools.AudioSound.mainSound">
+            <summary>
+            字典存储音乐音效
+            </summary>
+        </member>
+        <member name="F:DataTools.AudioSound.curSoundList">
+            <summary>
+            音效链表
+            </summary>
+        </member>
+        <member name="F:DataTools.AudioSound.curBGMList">
+            <summary>
+            音乐链表
+            </summary>
+        </member>
+        <member name="F:DataTools.AudioSound.audioRoot">
+            <summary>
+            音频挂载根节点
+            </summary>
+        </member>
+        <member name="F:DataTools.AudioSound.soundVlo">
+            <summary>
+            默认音效音量
+            </summary>
+        </member>
+        <member name="F:DataTools.AudioSound.musicVlo">
+            <summary>
+            默认音乐音量
+            </summary>
+        </member>
+        <member name="F:DataTools.AudioSound.LoadComplete">
+            <summary>
+            加载完成监听（注：此事件必须在初始化前完成注册）
+            </summary>
+        </member>
+        <member name="P:DataTools.AudioSound.GetMainSound">
+            <summary>
+            主音频容器
+            </summary>
+        </member>
+        <member name="P:DataTools.AudioSound.isInit">
+            <summary>
+            是否初始化
+            </summary>
+        </member>
+        <member name="M:DataTools.AudioSound.InitSound(DataTools.AudioSound.LoadType)">
+            <summary>
+            初始化音乐
+            </summary>
+            <param name="aType">加载方式（注：外置音频格式只支持OGG）</param>
+        </member>
+        <member name="M:DataTools.AudioSound.LoadSound(DataTools.AudioSound.LoadType)">
+            <summary>
+            加载声音
+            </summary>
+        </member>
+        <member name="M:DataTools.AudioSound.LoadAudioClip">
+            <summary>
+            下载外置音频
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DataTools.AudioSound.CreateSoundPlay(System.String,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            初始化创建加载音乐
+            </summary>
+            <param name="_fileName">音乐名字</param>
+            <param name="isSound">是否是音效</param>
+            <param name="loop">是否循环播放</param>
+            <param name="autoPlay">是否自动播放</param>
+            <returns>音频长度</returns>
+        </member>
+        <member name="M:DataTools.AudioSound.loopNext(System.String[],System.Boolean)">
+            <summary>
+            无限随机循环
+            </summary>
+            <param name="randMusicName">随机歌曲名字数组</param>
+            <param name="RandLoop">是否无线循环随机</param>
+            <returns></returns>
+        </member>
+        <member name="M:DataTools.AudioSound.ChangeMusicVolume(System.Single)">
+            <summary>
+            修改音乐音量
+            </summary>
+            <param name="_value">音乐大小</param>
+        </member>
+        <member name="M:DataTools.AudioSound.ChangeSoundVolume(System.Single)">
+            <summary>
+            修改音效音量
+            </summary>
+            <param name="_value">音效大小</param>
+        </member>
+        <member name="M:DataTools.AudioSound.StopAudio(System.String,System.Boolean)">
+            <summary>
+            停止播放指定音频
+            </summary>
+            <param name="_name">音频名字</param>
+            <param name="bSound">是否为音频</param>
+        </member>
+        <member name="M:DataTools.AudioSound.ReplayAudio(System.String)">
+            <summary>
+            重置播放指定音频
+            </summary>
+            <param name="_name">音频名字</param>
+            <returns></returns>
+        </member>
+        <member name="M:DataTools.AudioSound.PauseAudio(System.String,System.Boolean)">
+            <summary>
+            暂停/播放指定音频
+            </summary>
+            <param name="_name">音频名字</param>
+            <param name="bPause">是否为背景音乐</param>
+        </member>
+        <member name="M:DataTools.AudioSound.AllStop">
+            <summary>
+            关闭所有音乐
+            </summary>
+        </member>
+        <member name="M:DataTools.AudioSound.AllPause">
+            <summary>
+            暂停所有音乐
+            </summary>
+        </member>
+        <member name="M:DataTools.AudioSound.ClearSound">
+            <summary>
+            清空主音频容器
+            </summary>
+        </member>
+        <member name="M:DataTools.AudioSound.ShowVolumeByGUI(System.Single,System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            音乐音量设置(GUILabel显示。默认操作键↑↓←→调节大小（注：此方法必须在OnGUI方法内执行）)
+            </summary>
+            <param name="e_time">存在时间</param>
+            <param name="x">Label的X坐标</param>
+            <param name="y">Label的Y坐标</param>
+            <param name="width">Label的宽度</param>
+            <param name="height">Label的高度</param>
+        </member>
+        <member name="M:DataTools.AudioSound.ShowVolumeByText(System.Single)">
+            <summary>
+            音乐音量设置(本文显示。默认操作键↑↓←→)
+            </summary>
+            <param name="e_time">存在时间</param>
+            <returns>文本内容</returns>
+        </member>
+        <member name="M:DataTools.AudioSound.FindAudioByName(System.String)">
+            <summary>
+            根据名字找音频
+            </summary>
+            <param name="_name">名字</param>
+            <returns></returns>
+        </member>
+        <member name="F:DataTools.AudioSound.LoadType.Resources">
+            <summary>
+            Resources/sound路径文件夹
+            </summary>
+        </member>
+        <member name="F:DataTools.AudioSound.LoadType.StreamingAssets">
+            <summary>
+            StreamingAssetsPath/AudioFile路径文件夹
+            </summary>
+        </member>
+        <member name="T:DataTools.EventCenter">
+            <summary>
+            广播事件处理中心
+            </summary>
+        </member>
+        <member name="M:DataTools.EventCenter.OnAddListenerCheck(System.Enum,System.Delegate)">
+            <summary>
+            添加监听检查
+            </summary>
+            <param name="eventCode">事件码</param>
+            <param name="callBack">委托内容</param>
+        </member>
+        <member name="M:DataTools.EventCenter.OnRemoveListenerCheck(System.Enum,System.Delegate)">
+            <summary>
+            移除监听检查
+            </summary>
+            <param name="eventCode">事件码</param>
+            <param name="callBack">委托内容</param>
+        </member>
+        <member name="M:DataTools.EventCenter.OnListenerRemoved(System.Enum)">
+            <summary>
+            清除空事件码
+            </summary>
+            <param name="eventCode">事件码</param>
+        </member>
+        <member name="M:DataTools.EventCenter.AddListener(System.Enum,DataTools.CallBack)">
+            <summary>
+            无参数添加监听
+            </summary>
+            <param name="eventCode">事件码</param>
+            <param name="callBack">委托内容</param>
+        </member>
+        <member name="M:DataTools.EventCenter.AddListener``1(System.Enum,DataTools.CallBack{``0})">
+            <summary>
+            1个参数添加监听
+            </summary>
+            <param name="eventCode">事件码</param>
+            <param name="callBack">委托内容</param>
+        </member>
+        <member name="M:DataTools.EventCenter.AddListener``2(System.Enum,DataTools.CallBack{``0,``1})">
+            <summary>
+            2个参数添加监听
+            </summary>
+            <param name="eventCode">事件码</param>
+            <param name="callBack">委托内容</param>
+        </member>
+        <member name="M:DataTools.EventCenter.AddListener``3(System.Enum,DataTools.CallBack{``0,``1,``2})">
+            <summary>
+            3个参数添加监听
+            </summary>
+            <param name="eventCode">事件码</param>
+            <param name="callBack">委托内容</param>
+        </member>
+        <member name="M:DataTools.EventCenter.AddListener``4(System.Enum,DataTools.CallBack{``0,``1,``2,``3})">
+            <summary>
+            4个参数添加监听
+            </summary>
+            <param name="eventCode">事件码</param>
+            <param name="callBack">委托内容</param>
+        </member>
+        <member name="M:DataTools.EventCenter.AddListener``5(System.Enum,DataTools.CallBack{``0,``1,``2,``3,``4})">
+            <summary>
+            5个参数添加监听
+            </summary>
+            <param name="eventCode">事件码</param>
+            <param name="callBack">委托内容</param>
+        </member>
+        <member name="M:DataTools.EventCenter.RemoveListener(System.Enum,DataTools.CallBack)">
+            <summary>
+            无参数移除监听
+            </summary>
+            <param name="eventCode">事件码</param>
+            <param name="callBack">委托内容</param>
+        </member>
+        <member name="M:DataTools.EventCenter.RemoveListener``1(System.Enum,DataTools.CallBack{``0})">
+            <summary>
+            1个参数移除监听
+            </summary>
+            <param name="eventCode">事件码</param>
+            <param name="callBack">委托内容</param>
+        </member>
+        <member name="M:DataTools.EventCenter.RemoveListener``2(System.Enum,DataTools.CallBack{``0,``1})">
+            <summary>
+            2个参数移除监听
+            </summary>
+            <param name="eventCode">事件码</param>
+            <param name="callBack">委托内容</param>
+        </member>
+        <member name="M:DataTools.EventCenter.RemoveListener``3(System.Enum,DataTools.CallBack{``0,``1,``2})">
+            <summary>
+            3个参数移除监听
+            </summary>
+            <param name="eventCode">事件码</param>
+            <param name="callBack">委托内容</param>
+        </member>
+        <member name="M:DataTools.EventCenter.RemoveListener``4(System.Enum,DataTools.CallBack{``0,``1,``2,``3})">
+            <summary>
+            4个参数移除监听
+            </summary>
+            <param name="eventCode">事件码</param>
+            <param name="callBack">委托内容</param>
+        </member>
+        <member name="M:DataTools.EventCenter.RemoveListener``5(System.Enum,DataTools.CallBack{``0,``1,``2,``3,``4})">
+            <summary>
+            5个参数移除监听
+            </summary>
+            <param name="eventCode">事件码</param>
+            <param name="callBack">委托内容</param>
+        </member>
+        <member name="M:DataTools.EventCenter.Broadcast(System.Enum)">
+            <summary>
+            无参数广播委托
+            </summary>
+            <param name="eventCode">事件码</param>
+        </member>
+        <member name="M:DataTools.EventCenter.Broadcast``1(System.Enum,``0)">
+            <summary>
+            1个参数广播委托
+            </summary>
+            <typeparam name="T">类型</typeparam>
+            <param name="eventCode">事件码</param>
+            <param name="arg">参数</param>
+        </member>
+        <member name="M:DataTools.EventCenter.Broadcast``2(System.Enum,``0,``1)">
+            <summary>
+            2个参数广播委托
+            </summary>
+            <param name="eventCode">事件码</param>
+            <param name="arg1">参数1</param>
+            <param name="arg2">参数2</param>
+        </member>
+        <member name="M:DataTools.EventCenter.Broadcast``3(System.Enum,``0,``1,``2)">
+            <summary>
+            3个参数广播委托
+            </summary>
+            <param name="eventCode">事件码</param>
+            <param name="arg1">参数1</param>
+            <param name="arg2">参数2</param>
+            <param name="arg3">参数3</param>
+        </member>
+        <member name="M:DataTools.EventCenter.Broadcast``4(System.Enum,``0,``1,``2,``3)">
+            <summary>
+            4个参数广播委托
+            </summary>
+            <param name="eventCode">事件码</param>
+            <param name="arg1">参数1</param>
+            <param name="arg2">参数2</param>
+            <param name="arg3">参数3</param>
+            <param name="arg4">参数4</param>
+        </member>
+        <member name="M:DataTools.EventCenter.Broadcast``5(System.Enum,``0,``1,``2,``3,``4)">
+            <summary>
+            5个参数广播委托
+            </summary>
+            <param name="eventCode">事件码</param>
+            <param name="arg1">参数1</param>
+            <param name="arg2">参数2</param>
+            <param name="arg3">参数3</param>
+            <param name="arg4">参数4</param>
+            <param name="arg5">参数5</param>
+        </member>
+        <member name="T:DataTools.GameData">
+            <summary>
+            V1.5
+            </summary>
+        </member>
+        <member name="M:DataTools.GameData.getInstance">
+            <summary>
+            获取单例对象
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DataTools.GameData.OnLoadData``1(System.String,DataType)">
+            <summary>
+            加载数据
+            </summary>
+            <param name="_path">加载路径</param>
+            <param name="saveDataType">数据格式</param>
+        </member>
+        <member name="M:DataTools.GameData.OnUpdateData``1(System.String,``0,DataType)">
+            <summary>
+            更新数据
+            </summary>
+            <param name="_path">写入数据路径</param>
+            <param name="_datas">数据类型</param>
+            <param name="saveDataType">保存格式（注：保存方式为三种 json丶xml丶binary,
+            json需要Newtonsoft.Json.dll,xml不支持直接序列化Dictionary请使用SerialDictionary）</param>
+        </member>
+        <member name="M:DataTools.GameData.LoadingPhoto(System.String,System.Boolean)">
+            <summary>
+            加载路径图片
+            </summary>
+            <param name="urls">路径</param>
+            <param name="bSprite">是否转换成精灵图</param>
+            <returns>return texture or sprite</returns>
+        </member>
+        <member name="M:DataTools.GameData.SavePicToFile(System.Byte[],System.String,System.String)">
+            <summary>
+            保存图片到指定路径下
+            </summary>
+            <param name="_tex">图片数据流</param>
+            <param name="_path">路径</param>
+            <param name="name">名字+".格式"</param>
+        </member>
+        <member name="M:DataTools.GameData.GetAllURL(System.String,System.String[]@,FileType)">
+            <summary>
+            获取文件夹路径下所有类型文件urlByFileType
+            </summary>
+            <param name="_path">文件夹路径</param>
+            <param name="urls">存储路径数组</param>
+            <param name="_fileType">获取文件类型</param>
+        </member>
+        <member name="M:DataTools.GameData.GetAllURL(System.String,System.String[])">
+            <summary>
+            获取文件夹路径下所有类型文件url
+            </summary>
+            <param name="dirPath">路径</param>
+            <param name="searchPatterns">类型数组</param>
+            <returns>所有类型名</returns>
+        </member>
+        <member name="M:DataTools.GameData.LoadAllPicByFolder``1(System.String)">
+            <summary>
+            加载指定文件夹下所有图片
+            </summary>
+            <typeparam name="T">图片类型</typeparam>
+            <param name="_path">文件夹路径</param>
+            <returns>所有类型图片</returns>
+        </member>
+        <member name="M:DataTools.GameData.LoadAsyncAllPicByFolder(System.String,System.Action{DataTools.AsyncData})">
+            <summary>
+            异步加载指定文件夹路径下所有图片数据
+            </summary>
+            <param name="_path">文件夹路径</param>
+            <param name="_complete">下载完成后委托事件，传入数据流及其原始文件名</param>
+            <returns>异步下载消息</returns>
+        </member>
+        <member name="M:DataTools.GameData.LoadThreadAllPicByFolder(System.String,System.Action{System.Collections.Generic.List{DataTools.ThreadData}})">
+            <summary>
+             线程加载指定文件夹路径下所有图片数据
+            </summary>
+            <param name="_path">文件夹路径</param>
+            <param name="_complete">下载完成后委托事件，传入数据流及其原始文件名</param>
+        </member>
+        <member name="T:DataTools.Async">
+            <summary>
+            异步加载类
+            </summary>
+        </member>
+        <member name="F:DataTools.Async.bDebug">
+            <summary>
+            是否打印实时下载消息
+            </summary>
+        </member>
+        <member name="P:DataTools.Async.debugTxt">
+            <summary>
+            消息内容
+            </summary>
+        </member>
+        <member name="P:DataTools.Async.progress">
+            <summary>
+            进度
+            </summary>
+        </member>
+        <member name="P:DataTools.Async._loadCompleted">
+            <summary>
+            下载返回数据
+            </summary>
+        </member>
+        <member name="M:DataTools.Async.DownloadAllPicByUrls(System.String[],DataTools.Async)">
+            <summary>
+            协程加载图片数据
+            </summary>
+            <param name="path">路径组</param>
+            <param name="async">异步类对象</param>
+            <returns></returns>
+        </member>
+        <member name="T:DataTools.LoadThread">
+            <summary>
+            线程加载
+            </summary>
+        </member>
+        <member name="F:DataTools.LoadThread.bDebug">
+            <summary>
+            是否打印实时下载消息
+            </summary>
+        </member>
+        <member name="P:DataTools.LoadThread.debugTxt">
+            <summary>
+            消息内容
+            </summary>
+        </member>
+        <member name="P:DataTools.LoadThread.progress">
+            <summary>
+            进度
+            </summary>
+        </member>
+        <member name="P:DataTools.LoadThread._loadCompleted">
+            <summary>
+            下载返回数据
+            </summary>
+        </member>
+        <member name="F:DataTools.LoadThread.thread">
+            <summary>
+            线程
+            </summary>
+        </member>
+        <member name="M:DataTools.LoadThread.#ctor(System.String[])">
+            <summary>
+            初始化
+            </summary>
+            <param name="url">路径</param>
+        </member>
+        <member name="M:DataTools.LoadThread.LoadThreadAllPicByFolder(System.Action{System.Collections.Generic.List{DataTools.ThreadData}})">
+            <summary>
+             线程加载指定文件夹路径下所有图片数据
+            </summary>
+            <param name="_complete">下载完成后监听，传入数据流及其原始文件名</param>
+        </member>
+        <member name="T:DataTools.ThreadData">
+            <summary>
+            线程数据
+            </summary>
+        </member>
+        <member name="T:DataTools.AsyncData">
+            <summary>
+            协程数据类
+            </summary>
+        </member>
+        <member name="T:DataTools.LoadAssetBundle">
+            <summary>
+             加载资源
+            </summary>
+        </member>
+        <member name="M:DataTools.LoadAssetBundle.LoadFromFile(System.String,System.UInt32)">
+            <summary>
+            读取本地文件assetBundle
+            </summary>
+            <param name="_assetbundle">路径</param>
+            <param name="_crc">校验码</param>
+            <returns></returns>
+        </member>
+        <member name="M:DataTools.LoadAssetBundle.LoadFromFileAsyn(System.String,DataTools.CallBack{UnityEngine.AssetBundle},System.UInt32)">
+            <summary>
+            异步下载本地assetBundle
+            </summary>
+            <param name="_assetbundle">路径</param>
+            <param name="_crc">校验码</param>
+            <param name="callBack">下载完成委托</param>
+        </member>
+        <member name="M:DataTools.LoadAssetBundle.LoadABAsyn(System.String,DataTools.CallBack{UnityEngine.AssetBundle},System.UInt32)">
+            <summary>
+            外部下载assetBundle
+            </summary>
+            <param name="_url">链接</param>
+            <param name="_crc">校验码</param>
+            <param name="callBack">下载完成委托</param>
+        </member>
+        <member name="T:DataTools.VideoPlayerMG">
+            <summary>
+            视频播放管理器V1.5
+            </summary>
+        </member>
+        <member name="P:DataTools.VideoPlayerMG.GetVideoProgress">
+            <summary>
+            获取当前视频进度
+            </summary>
+        </member>
+        <member name="P:DataTools.VideoPlayerMG.GetVideoLength">
+            <summary>
+            获取当前视频长度
+            </summary>
+        </member>
+        <member name="P:DataTools.VideoPlayerMG.GetVideoName">
+            <summary>
+            获取当前视频名字
+            </summary>
+        </member>
+        <member name="P:DataTools.VideoPlayerMG.GetVideoSize">
+            <summary>
+            获取当前视频大小
+            </summary>
+        </member>
+        <member name="P:DataTools.VideoPlayerMG.GetVideoAllPath">
+            <summary>
+            获取所有读取到的视频路径
+            </summary>
+        </member>
+        <member name="P:DataTools.VideoPlayerMG.isInit">
+            <summary>
+            是否初始化
+            </summary>
+        </member>
+        <member name="P:DataTools.VideoPlayerMG.ActualPath">
+            <summary>
+            实际路径
+            </summary>
+        </member>
+        <member name="P:DataTools.VideoPlayerMG.SpecifyIndex">
+            <summary>
+            指定循环下标
+            </summary>
+        </member>
+        <member name="F:DataTools.VideoPlayerMG.videoUrl">
+            <summary>
+            所有加载到的视频路径
+            </summary>
+        </member>
+        <member name="M:DataTools.VideoPlayerMG.Finsh(UnityEngine.Video.VideoPlayer)">
+            <summary>
+            视频准备完成事件注册
+            </summary>
+            <param name="_vp">注册完成的视频</param>
+        </member>
+        <member name="M:DataTools.VideoPlayerMG.LPR(UnityEngine.Video.VideoPlayer)">
+            <summary>
+            循环点
+            </summary>
+            <param name="_vp">视频</param>
+        </member>
+        <member name="M:DataTools.VideoPlayerMG.GetVIndexByName(System.String)">
+            <summary>
+            根据名字找路径组下标
+            </summary>
+            <param name="_videoName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DataTools.VideoPlayerMG.OnPlayVideo(System.Int32,System.Int32)">
+            <summary>
+            播放视频
+            </summary>
+            <param name="playIndex">播放下标</param>
+            <param name="specifyIndex">循环指定下标</param>
+            <returns>是否成功播放</returns>
+        </member>
+        <member name="M:DataTools.VideoPlayerMG.OnPeasue">
+            <summary>
+            暂停当前视频
+            </summary>
+        </member>
+        <member name="M:DataTools.VideoPlayerMG.OnPlay">
+            <summary>
+            播放当前视频
+            </summary>
+        </member>
+        <member name="M:DataTools.VideoPlayerMG.OnStop">
+            <summary>
+            停止当前视频
+            </summary>
+        </member>
+        <member name="F:DataTools.VideoPlayerMG.LoopType.None">
+            <summary>
+            不循环
+            </summary>
+        </member>
+        <member name="F:DataTools.VideoPlayerMG.LoopType.Single">
+            <summary>
+            单个循环
+            </summary>
+        </member>
+        <member name="F:DataTools.VideoPlayerMG.LoopType.Sequential">
+            <summary>
+            顺序循环
+            </summary>
+        </member>
+        <member name="F:DataTools.VideoPlayerMG.LoopType.Random">
+            <summary>
+            随机循环
+            </summary>
+        </member>
+        <member name="T:DataTools.XmlHelper">
+            <summary>
+            V1.0
+            </summary>
+        </member>
+        <member name="M:DataTools.XmlHelper.XmlSerializeInternal(System.IO.Stream,System.Object,System.Text.Encoding)">
+            <summary>
+            XML序列化
+            </summary>
+            <param name="stream">数据流</param>
+            <param name="o">被序列化数据</param>
+            <param name="encoding">格式</param>
+        </member>
+        <member name="M:DataTools.XmlHelper.XmlSerialize(System.Object,System.Text.Encoding)">
+            <summary>
+            将一个对象序列化为XML字符串
+            </summary>
+            <param name="o">要序列化的对象</param>
+            <param name="encoding">编码方式</param>
+            <returns>序列化产生的XML字符串</returns>
+        </member>
+        <member name="M:DataTools.XmlHelper.XmlSerializeToFile(System.Object,System.String,System.Text.Encoding)">
+            <summary>
+            将一个对象按XML序列化的方式写入到一个文件
+            </summary>
+            <param name="o">要序列化的对象</param>
+            <param name="path">保存文件路径</param>
+            <param name="encoding">编码方式</param>
+        </member>
+        <member name="M:DataTools.XmlHelper.XmlDeserialize``1(System.String,System.Text.Encoding)">
+            <summary>
+            从XML字符串中反序列化对象
+            </summary>
+            <typeparam name="T">结果对象类型</typeparam>
+            <param name="s">包含对象的XML字符串</param>
+            <param name="encoding">编码方式</param>
+            <returns>反序列化得到的对象</returns>
+        </member>
+        <member name="M:DataTools.XmlHelper.XmlDeserializeFromFile``1(System.String,System.Text.Encoding)">
+            <summary>
+            读入一个文件，并按XML的方式反序列化对象。
+            </summary>
+            <typeparam name="T">结果对象类型</typeparam>
+            <param name="path">文件路径</param>
+            <param name="encoding">编码方式</param>
+            <returns>反序列化得到的对象</returns>
+        </member>
+        <member name="T:Single`1">
+            <summary>
+            泛单
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Single`1.getInstance">
+            <summary>
+            获取单例对象
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:UserData">
+            <summary>
+            玩家数据类
+            </summary>
+        </member>
+        <member name="F:UserData.grade">
+            <summary>
+            积分
+            </summary>
+        </member>
+        <member name="F:UserData.photoPath">
+            <summary>
+            照片相对路径
+            </summary>
+        </member>
+        <member name="F:UserData.openid">
+            <summary>
+            用户ID
+            </summary>
+        </member>
+        <member name="T:GameState">
+            <summary>
+            游戏基本状态
+            </summary>
+        </member>
+        <member name="F:GameState.HomePage">
+            <summary>
+            首页
+            </summary>
+        </member>
+        <member name="F:GameState.GameStart">
+            <summary>
+            开始游戏
+            </summary>
+        </member>
+        <member name="F:GameState.GameOver">
+            <summary>
+            游戏结束
+            </summary>
+        </member>
+        <member name="T:FileType">
+            <summary>
+            路径文件类型
+            </summary>
+        </member>
+        <member name="F:FileType.Audio">
+            <summary>
+            音频
+            </summary>
+        </member>
+        <member name="F:FileType.Video">
+            <summary>
+            视频
+            </summary>
+        </member>
+        <member name="F:FileType.Picture">
+            <summary>
+            图片
+            </summary>
+        </member>
+        <member name="T:PicType">
+            <summary>
+            图片格式
+            </summary>
+        </member>
+        <member name="T:DataType">
+            <summary>
+            保存数据类型
+            </summary>
+        </member>
+        <member name="T:ExtendTools">
+            <summary>
+            扩展工具
+            </summary>
+        </member>
+        <member name="M:ExtendTools.ToBase64(System.Byte[])">
+            <summary> 
+            将 byte[] 转成 Base64 
+            </summary> 
+        </member>
+        <member name="M:ExtendTools.ToBytes(System.IO.Stream)">
+            <summary> 
+            将 Stream 转成 byte[] 
+            </summary> 
+        </member>
+        <member name="M:ExtendTools.Parse(UnityEngine.Vector3,System.String)">
+            <summary>
+            string to vector3
+            </summary>
+            <param name="vString">string</param>
+        </member>
+        <member name="M:ExtendTools.ToVector3(System.String)">
+            <summary>
+            string to vector3
+            </summary>
+            <param name="vString">string</param>
+        </member>
+        <member name="M:ExtendTools.LoadImageByBase64(UnityEngine.Texture2D,System.String)">
+            <summary>
+            Base64转换成Texture2D
+            </summary>
+            <param name="base64">base64字符串</param>
+        </member>
+        <member name="M:ExtendTools.ToSprite(UnityEngine.Texture2D)">
+            <summary>
+            Texture2D转换成Sprite
+            </summary>
+        </member>
+        <member name="M:ExtendTools.AddUser(System.Collections.Generic.List{UserData},UserData,System.Int32,System.Boolean)">
+            <summary>
+            加入用户
+            </summary>
+            <param name="lsUd">用户数据</param>
+            <param name="_data">用户类</param>
+            <param name="MaxRankNum">最大人数</param>
+            <param name="bRepeat">是否排名重复</param>
+            <returns></returns>
+        </member>
+        <member name="M:ExtendTools.ToSort(System.Collections.Generic.List{UserData},System.Boolean)">
+            <summary>
+            链表分数排序
+            </summary>
+            <param name="lisUser">链表数据</param>
+            <param name="Descending">是否降序</param>
+            <returns></returns>
+        </member>
+        <member name="M:ExtendTools.ToSort(System.Collections.Generic.Dictionary{System.String,UserData},System.Boolean)">
+            <summary>
+            字典分数排序
+            </summary>
+            <param name="dicUser">字典数据</param>
+            <param name="Descending">是否降序</param>
+            <returns></returns>
+        </member>
+        <member name="M:ExtendTools.ToSort(SerialDictionary{System.String,UserData},System.Boolean)">
+            <summary>
+            序列化字典分数排序
+            </summary>
+            <param name="sdicUser">序列化字典数据</param>
+            <param name="Descending">是否降序</param>
+            <returns></returns>
+        </member>
+        <member name="M:ExtendTools.ToSort``2(System.Collections.Generic.List{``0},System.Func{``0,``1},System.Boolean)">
+            <summary>
+            链表根据元素属性排序算法
+            </summary>
+            <typeparam name="T">元素</typeparam>
+            <typeparam name="TPair">条件结果</typeparam>
+            <param name="keySelector">主要条件</param>
+            <param name="Descending">是否降序</param>
+            <returns>根据条件排序完成后的链表</returns>
+        </member>
+        <member name="M:ExtendTools.ToSort``2(System.Collections.Generic.List{``0},System.Func{``0,``1},System.Func{``0,``1},System.Boolean)">
+            <summary>
+            链表根据元素属性排序算法
+            </summary>
+            <typeparam name="T">元素</typeparam>
+            <typeparam name="TPair">条件结果</typeparam>
+            <param name="keySelector">主要条件</param>
+            <param name="additiona1">附加条件1</param>
+            <param name="Descending">是否降序</param>
+            <returns>根据条件排序完成后的链表</returns>
+        </member>
+        <member name="M:ExtendTools.ToSort``2(System.Collections.Generic.List{``0},System.Func{``0,``1},System.Func{``0,``1},System.Func{``0,``1},System.Boolean)">
+            <summary>
+            链表根据元素属性排序算法
+            </summary>
+            <typeparam name="T">元素</typeparam>
+            <typeparam name="TPair">条件结果</typeparam>
+            <param name="keySelector">主要条件</param>
+            <param name="additiona1">附加条件1</param>
+            <param name="additiona2">附加条件2</param>
+            <param name="Descending">是否降序</param>
+            <returns>根据条件排序完成后的链表</returns>
+        </member>
+        <member name="M:ExtendTools.ToSort``2(System.Collections.Generic.List{``0},System.Func{``0,``1},System.Func{``0,``1},System.Func{``0,``1},System.Func{``0,``1},System.Boolean)">
+            <summary>
+            链表根据元素属性排序算法
+            </summary>
+            <typeparam name="T">元素</typeparam>
+            <typeparam name="TPair">条件结果</typeparam>
+            <param name="keySelector">主要条件</param>
+            <param name="additiona1">附加条件1</param>
+            <param name="additiona2">附加条件2</param>
+            <param name="additiona3">附加条件3</param>
+            <param name="Descending">是否降序</param>
+            <returns>根据条件排序完成后的链表</returns>
+        </member>
+        <member name="M:ExtendTools.ToSort``2(System.Collections.Generic.List{``0},System.Func{``0,``1},System.Func{``0,``1},System.Func{``0,``1},System.Func{``0,``1},System.Func{``0,``1},System.Boolean)">
+            <summary>
+            链表根据元素属性排序算法
+            </summary>
+            <typeparam name="T">元素</typeparam>
+            <typeparam name="TPair">条件结果</typeparam>
+            <param name="keySelector">主要条件</param>
+            <param name="additiona1">附加条件1</param>
+            <param name="additiona2">附加条件2</param>
+            <param name="additiona3">附加条件3</param>
+            <param name="additiona4">附加条件4</param>
+            <param name="Descending">是否降序</param>
+            <returns>根据条件排序完成后的链表</returns>
+        </member>
+        <member name="M:ExtendTools.ToSerialDictionary``2(System.Collections.Generic.Dictionary{``0,``1})">
+            <summary>
+            字典转换成序列化字典
+            </summary>
+            <returns>序列化字典</returns>
+        </member>
+        <member name="M:ExtendTools.ToSort``3(System.Collections.Generic.Dictionary{``0,``1},System.Func{System.Collections.Generic.KeyValuePair{``0,``1},``2},System.Boolean)">
+            <summary>
+            字典根据元素属性排序算法
+            </summary>
+            <typeparam name="TKey">键</typeparam>
+            <typeparam name="TValue">值</typeparam>
+            <typeparam name="TPair">条件结果</typeparam>
+            <param name="keySelector">主要条件</param>
+            <param name="Descending">是否降序</param>
+            <returns>根据条件排序完成后的字典</returns>
+        </member>
+        <member name="M:ExtendTools.ToSort``3(System.Collections.Generic.Dictionary{``0,``1},System.Func{System.Collections.Generic.KeyValuePair{``0,``1},``2},System.Func{System.Collections.Generic.KeyValuePair{``0,``1},``2},System.Boolean)">
+            <summary>
+            字典根据元素属性排序算法
+            </summary>
+            <typeparam name="TKey">键</typeparam>
+            <typeparam name="TValue">值</typeparam>
+            <typeparam name="TPair">条件结果</typeparam>
+            <param name="keySelector">主要条件</param>
+            <param name="additiona1">附加条件1</param>
+            <param name="Descending">是否降序</param>
+            <returns>根据条件排序完成后的字典</returns>
+        </member>
+        <member name="M:ExtendTools.ToSort``3(System.Collections.Generic.Dictionary{``0,``1},System.Func{System.Collections.Generic.KeyValuePair{``0,``1},``2},System.Func{System.Collections.Generic.KeyValuePair{``0,``1},``2},System.Func{System.Collections.Generic.KeyValuePair{``0,``1},``2},System.Boolean)">
+            <summary>
+            字典根据元素属性排序算法
+            </summary>
+            <typeparam name="TKey">键</typeparam>
+            <typeparam name="TValue">值</typeparam>
+            <typeparam name="TPair">条件结果</typeparam>
+            <param name="keySelector">主要条件</param>
+            <param name="additiona1">附加条件1</param>
+            <param name="additiona2">附加条件2</param>
+            <param name="Descending">是否降序</param>
+            <returns>根据条件排序完成后的字典</returns>
+        </member>
+        <member name="M:ExtendTools.ToSort``3(System.Collections.Generic.Dictionary{``0,``1},System.Func{System.Collections.Generic.KeyValuePair{``0,``1},``2},System.Func{System.Collections.Generic.KeyValuePair{``0,``1},``2},System.Func{System.Collections.Generic.KeyValuePair{``0,``1},``2},System.Func{System.Collections.Generic.KeyValuePair{``0,``1},``2},System.Boolean)">
+            <summary>
+            字典根据元素属性排序算法
+            </summary>
+            <typeparam name="TKey">键</typeparam>
+            <typeparam name="TValue">值</typeparam>
+            <typeparam name="TPair">条件结果</typeparam>
+            <param name="keySelector">主要条件</param>
+            <param name="additiona1">附加条件1</param>
+            <param name="additiona2">附加条件2</param>
+            <param name="additiona3">附加条件3</param>
+            <param name="Descending">是否降序</param>
+            <returns>根据条件排序完成后的字典</returns>
+        </member>
+        <member name="M:ExtendTools.ToSort``3(System.Collections.Generic.Dictionary{``0,``1},System.Func{System.Collections.Generic.KeyValuePair{``0,``1},``2},System.Func{System.Collections.Generic.KeyValuePair{``0,``1},``2},System.Func{System.Collections.Generic.KeyValuePair{``0,``1},``2},System.Func{System.Collections.Generic.KeyValuePair{``0,``1},``2},System.Func{System.Collections.Generic.KeyValuePair{``0,``1},``2},System.Boolean)">
+            <summary>
+            字典根据元素属性排序算法
+            </summary>
+            <typeparam name="TKey">键</typeparam>
+            <typeparam name="TValue">值</typeparam>
+            <typeparam name="TPair">条件结果</typeparam>
+            <param name="keySelector">主要条件</param>
+            <param name="additiona1">附加条件1</param>
+            <param name="additiona2">附加条件2</param>
+            <param name="additiona3">附加条件3</param>
+            <param name="additiona4">附加条件4</param>
+            <param name="Descending">是否降序</param>
+            <returns>根据条件排序完成后的字典</returns>
+        </member>
+        <member name="M:ExtendTools.FinSceneObjectsOfTypeAll``1(UnityEngine.GameObject)">
+            <summary>
+            找到场景中所有指定类型组件（包含被禁用物体）
+            </summary>
+            <typeparam name="T">组件类型</typeparam>
+            <returns>所有指定类型组件</returns>
+        </member>
+        <member name="M:ExtendTools.FinSceneObjectsWithTag(UnityEngine.GameObject,System.String)">
+            <summary>
+            根据Tag找到场景中所有对应物体（包含被禁用物体）
+            </summary>
+            <param name="tag">标签名</param>
+            <returns>所有对应标签物体</returns>
+        </member>
+        <member name="M:ExtendTools.FinSceneObjectsWithLayer(UnityEngine.GameObject,System.Int32)">
+            <summary>
+            根据Layer找到场景中所有对应物体（包含被禁用物体）
+            </summary>
+            <param name="layer">层次</param>
+            <returns>所有对应层次物体</returns>
+        </member>
+        <member name="T:SerialDictionary`2">
+            <summary>
+            SerialDictionary(支持 XML 序列化)V1.0
+            </summary>
+            <typeparam name="TKey">键类型</typeparam>
+            <typeparam name="TValue">值类型</typeparam>
+        </member>
+        <member name="M:SerialDictionary`2.ReadXml(System.Xml.XmlReader)">
+            <summary>
+            从对象的 XML 表示形式生成该对象(反序列化)
+            </summary>
+            <param name="xr"></param>
+        </member>
+        <member name="M:SerialDictionary`2.WriteXml(System.Xml.XmlWriter)">
+            <summary>
+             将对象转换为其 XML 表示形式(序列化)
+            </summary>
+            <param name="xw"></param>
+        </member>
+    </members>
+</doc>
